@@ -1,1 +1,144 @@
+#criador de senha
 
+import time
+import getpass
+import os
+
+def limpar_tela():
+os.system('cls' if os.name == 'nt' else 'clear')
+
+print("Crie uma senha para o cadastro...")
+time.sleep(1.5)
+limpar_tela()
+tiposenha = int(input("""Qual tipo de senha dejesa
+[1] Senha somente números
+[2] Senha somente letras
+[3] Senha letras e números
+
+Sua resposta: """))
+if tiposenha != 1 and tiposenha != 2 and tiposenha !=3:
+print("Programa interrompido")
+time.sleep(2)
+print("Renicie o programa, e escolha do tipo 1 a 3 de senha")
+else:
+match tiposenha:
+case 1:
+limpar_tela()
+print("Adicionando tipo de senha...")
+time.sleep(2)
+limpar_tela()
+senhanum = getpass.getpass("""crie sua, senha somente numeros
+
+* mínimo 6 caracteres
+
+        """)
+        if senhanum.isnumeric():
+            senhacont = len(senhanum)
+            if senhacont >=6:
+                limpar_tela()
+                print("Verificando senha...")
+                time.sleep(1.5)
+                limpar_tela()
+                print("Cadastro senha concluído")
+            else:
+                limpar_tela()
+                print("Verificando senha...")
+                time.sleep(1.5)
+                limpar_tela()
+                print("numero de carcteres incorreto, mínimo 6 caracteres")
+        else:
+            limpar_tela()
+            print("Verificando senha...")
+            time.sleep(1.5)
+            limpar_tela()
+            print("ERRO!!! caracteres incorreto")
+            time.sleep(1.5)
+            limpar_tela()
+            print("Digite somente números")
+
+    case 2:
+        limpar_tela()
+        print("Adicionando tipo de senha...")
+        time.sleep(2)
+        limpar_tela()
+        senhaletra = getpass.getpass("""Crie sua senha, somente letras
+
+* minimo 6 caracteres
+* 1 letra maiúscula
+* 1 letra minúscula
+
+        """)
+        if senhaletra.isalpha():
+            senhacont2 = len(senhaletra)
+            if senhacont2 >=6:
+                if any(mai.isupper() for mai in senhaletra):
+                    if any(min.islower() for min in senhaletra):
+                        limpar_tela()
+                        print("Verificando senha...")
+                        time.sleep(1.5)
+                        limpar_tela()
+                        print("Cadastro senha somente letras, concluído")
+                    else:
+                        limpar_tela()
+                        print("Verificando senha...")
+                        time.sleep(1.5)
+                        limpar_tela()
+                        print("ERRO!!, minimo 1 letrea minúscula")
+                else:
+                    limpar_tela()
+                    print("Verificando senha...")
+                    time.sleep(1.5)
+                    limpar_tela()
+                    print("ERRO!!, minimo 1 letra maiúscula")
+            else:
+                limpar_tela()
+                print("Verificando senha...")
+                time.sleep(1.5)
+                limpar_tela()
+                print("ERRO!!, senha com caracteres incompleto, minimo 6 caracteres")
+        else:
+            limpar_tela()
+            print("Verificando senha...")
+            time.sleep(1.5)
+            limpar_tela()
+            print("ERRO!!, senha somente letras")
+
+    case 3:
+        limpar_tela()
+        print("Adicionando tipo de senha...")
+        time.sleep(2)
+        limpar_tela()
+        senhaalnum = getpass.getpass("""Crie sua senha, somente letras e números
+
+* minimo 6 caracteres
+* minimo 1 letra
+* minimo 1 numero
+
+        """)
+        senhacont3 =  len(senhaalnum)
+        if senhacont3 >=6:
+            if any(num.isnumeric() for num in senhaalnum):
+                if any(letra.isalpha() for letra in senhaalnum):
+                    limpar_tela()
+                    print("Verificando senha...")
+                    time.sleep(1.5)
+                    limpar_tela()
+                    print("senha alpha numerica, concluída")
+                else:
+                    limpar_tela()
+                    print("Verificando senha...")
+                    time.sleep(1.5)
+                    limpar_tela()
+                    print("ERRO!!, minimo 1 letra")
+            else:
+                limpar_tela()
+                print("Verificando senha...")
+                time.sleep(1.5)
+                limpar_tela()
+                print("ERRO!!, minimo 1 numero")
+        else:
+            limpar_tela()
+            print("Verificando senha...")
+            time.sleep(1.5)
+            limpar_tela()
+            print("ERRO!!, minimo 6 caracteres")
